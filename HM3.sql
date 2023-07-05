@@ -135,8 +135,7 @@ join salary on salary.id = emp.salary_id
  join roles r on r.id = rs.id_role 
  join employee_salary es on es.salary_id = rs.id_salary 
  join employees emp on emp.id = es.employee_id
- where r.role_name like '%Senior%'
-  
+ where r.role_name like '%Senior%' 
    
  15. Вывести зарплаты Java разработчиков
  
@@ -144,9 +143,7 @@ join salary on salary.id = emp.salary_id
  join roles r on r.id = rs.id_role 
  join salary s on s.id = rs.id_salary 
  where r.role_name like '%Java%'
- 
- 
- 
+   
  16. Вывести зарплаты Python разработчиков
  
  select s.monthly_salary  from roles_salary rs
@@ -162,7 +159,6 @@ join salary on salary.id = emp.salary_id
  join roles_employee re on re.role_id = rs.id_role
  join employees emp on emp.id = re.employee_id 
  where r.role_name like '%Junior Python%'
- 
  
  18. Вывести имена и зарплаты Middle JS разработчиков
  
@@ -181,9 +177,8 @@ join salary on salary.id = emp.salary_id
  join roles_employee re on re.employee_id = es.employee_id 
  join roles r on r.id = re.role_id 
  where r.role_name like '%Senior Java%'
- 
- 
- ???20. Вывести зарплаты Junior QA инженеров
+  
+ 20. Вывести зарплаты Junior QA инженеров
  
 select s.monthly_salary  from roles_salary rs
 join roles r on r.id = rs.id_role 
@@ -198,7 +193,6 @@ where r.role_name like '%Junior%' and r.role_name like '%QA%'
  join roles r on r.id = re.role_id 
  where r.role_name like '%Junior%'
  
- 
  22. Вывести сумму зарплат JS разработчиков
  
  select * from employee_salary rs
@@ -207,8 +201,7 @@ where r.role_name like '%Junior%' and r.role_name like '%QA%'
  join salary s on s.id = rs.salary_id 
  join roles_salary r on r.id_salary = rs.salary_id 
  join roles ro on ro.id = r.id_role  
- where ro.role_name like '%JavaScript%'
- 
+ where ro.role_name like '%JavaScript%' 
 
  23. Вывести минимальную ЗП QA инженеров
  
@@ -272,10 +265,9 @@ where r.role_name like '%Junior%' and r.role_name like '%QA%'
  where s.monthly_salary between 1700 and 2300
  order by s.monthly_salary 
  
+31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
  
- 31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
- 
-select e.employee_name , r.role_name , s.monthly_salary  from roles_employee re
+ select e.employee_name , r.role_name , s.monthly_salary  from roles_employee re
  join employees e on e.id = re.employee_id 
  join roles r on r.id = re.role_id 
  join employee_salary es on es.employee_id = e.id 
@@ -293,7 +285,3 @@ select e.employee_name , r.role_name , s.monthly_salary  from roles_employee re
  where s.monthly_salary in(1100, 1500, 2000)
  order by s.monthly_salary 
  
- 
-drop table 
-
-select * from roles
